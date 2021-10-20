@@ -11,19 +11,20 @@ class profile_podman (
   Hash    $pods,
   Hash    $subid,
   Hash    $volumes,
-  Hash    $rootless_users,
+  Array   $rootless_users,
   Boolean $remove_stopped_containers,
 ) {
   class {'podman':
-    podman_docker_pkg => undef,
-    nodocker          => 'file',
-    enable_api_socket => $enable_api_socket,
-    containers        => $containers,
-    images            => $images,
-    pods              => $pods,
-    subid             => $subid,
-    volumes           => $volumes,
-    rootless_users    => $rootless_users,
+    podman_docker_pkg        => undef,
+    podman_docker_pkg_ensure => 'absent',
+    nodocker                 => 'file',
+    enable_api_socket        => $enable_api_socket,
+    containers               => $containers,
+    images                   => $images,
+    pods                     => $pods,
+    subid                    => $subid,
+    volumes                  => $volumes,
+    rootless_users           => $rootless_users,
   }
 
   if $remove_stopped_containers {

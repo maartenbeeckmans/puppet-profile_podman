@@ -5,5 +5,5 @@ profile_podman::images: {}
 profile_podman::pods: {}
 profile_podman::subid: {}
 profile_podman::volumes: {}
-profile_podman::rootless_users: {}
-profile_podman::remove_stopped_containers: {}
+profile_podman::rootless_users: []
+profile_podman::remove_stopped_containers: true
